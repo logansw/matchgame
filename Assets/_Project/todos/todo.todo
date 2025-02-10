@@ -1,0 +1,7 @@
+Bucket:
+    Make data structure to represent balls:
+        ✔ Make a generic abstract data type with basic expected functionality @30m @started(25-02-06 09:37) @done(25-02-06 10:04) @lasted(27m51s)
+        ✔ Make a actual implementation of the ADT @30m @started(25-02-06 10:04) @done(25-02-06 11:34) @lasted(1h31m)
+    ☐ Render to screen @60m @started(25-02-06 11:35)
+    ☐ Tap a ball to remove it @30m
+    ☐ Balls fall into place @30m
