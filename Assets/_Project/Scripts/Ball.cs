@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class Ball : MonoBehaviour, IInteractable
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    public delegate void BallSelectedDelegate(Ball ball);
+    public BallSelectedDelegate OnBallSelected;
+    [SerializeField] private SpriteRenderer _highlightSR;
 
     public void SetSprite(Sprite sprite)
     {
@@ -13,6 +17,12 @@ public class Ball : MonoBehaviour, IInteractable
 
     public void OnInputDown()
     {
-        Destroy(gameObject);
+        HighlightSelected();
+        OnBallSelected?.Invoke(this);
+    }
+
+    private void HighlightSelected()
+    {
+        _highlightSR.enabled = true;
     }
 }
