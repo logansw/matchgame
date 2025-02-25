@@ -15,6 +15,7 @@ public class BallRenderer : MonoBehaviour
         _ballQueueGrid = ballQueueGrid;
         _ballController = ballController;
         InstantiateView();
+        Ball.OnBallSelected += _ballController.AddBallToQueue;
     }
 
     public void InstantiateView()
@@ -26,8 +27,8 @@ public class BallRenderer : MonoBehaviour
             for (int j = 0; j < count; j++)
             {
                 Ball ball = Instantiate(_ballPrefab, new Vector2(-((_ballQueueGrid.Width-1) / 2f) + i, j), Quaternion.identity, transform);
-                ball.SetSprite(_sprites[column.Dequeue()]);
-                ball.OnBallSelected += _ballController.AddBallToQueue;
+                ball.Value = column.Dequeue();
+                ball.SetSprite(_sprites[ball.Value]);
             }
         }
     }

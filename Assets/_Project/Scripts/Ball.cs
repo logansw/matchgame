@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour, IInteractable
 {
+    public int Value;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     public delegate void BallSelectedDelegate(Ball ball);
-    public BallSelectedDelegate OnBallSelected;
+    public static BallSelectedDelegate OnBallSelected;
     [SerializeField] private SpriteRenderer _highlightSR;
 
     public void SetSprite(Sprite sprite)

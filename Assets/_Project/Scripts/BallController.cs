@@ -40,7 +40,6 @@ public class BallController : MonoBehaviour
     public void DeleteBallFromQueue()
     {
         Ball ball = _selectedBalls.Dequeue();
-        ball.OnBallSelected -= AddBallToQueue;
         Destroy(ball.gameObject);
     }
 }
