@@ -1,8 +1,8 @@
 --------------------------------------------------
 Roadmap:
     ✔ Spawn Balls @done(25-02-18 12:02)
-    ☐ Scoring @next
-    ☐ Timer
+    ✔ Scoring @next @done(25-02-25 12:47)
+    ☐ Timer @next
     ☐ Special Balls
     ☐ Replay
     ☐ Highscores
@@ -17,8 +17,8 @@ Bucket:
     ✔ Balls fall into place @30m @done(25-02-10 10:04)
     
 Scoring:
-    ☐ Track number of consecutive colors matched @high 
-    ☐ Render current score to screen @high
+    ✔ Track number of consecutive colors matched @high @done(25-02-25 12:47)
+    ✔ Render current score to screen @high @done(25-02-25 12:47)
     ☐ Basic UI to let Uncle Derek tune the scoring curve @low
 
 Wildcard:
