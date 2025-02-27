@@ -6,14 +6,14 @@ using UnityEngine.UIElements;
 public class BallController : MonoBehaviour
 {
     private const int GRID_WIDTH = 8;
-    [SerializeField] private Queue<Ball> _selectedBalls;
+    [SerializeField] private List<Ball> _selectedBalls;
     [SerializeField] private Ball _ballPrefab;
     [SerializeField] private List<Sprite> _sprites;
 
     void Start()
     {
         PopulateQueueGrid();
-        _selectedBalls = new Queue<Ball>(3);
+        _selectedBalls = new List<Ball>();
         Ball.OnBallSelected += AddBallToQueue;
     }
 
@@ -37,18 +37,21 @@ public class BallController : MonoBehaviour
 
     public void AddBallToQueue(Ball ball)
     {
-        _selectedBalls.Enqueue(ball);
-        if (_selectedBalls.Count >= 3)
+        if (_selectedBalls.Count != 0)
         {
-            DeleteBallFromQueue();
+            Ball lastBall = _selectedBalls[_selectedBalls.Count - 1];
+            if (lastBall != null && ball.Value == lastBall.Value)
+            {
+                foreach (Ball b in _selectedBalls)
+                {
+                    Destroy(b.gameObject);
+                    SpawnNewBall(new Vector2(b.Column, 10));
+                }
+                _selectedBalls = new List<Ball>();
+            }
         }
-    }
-    
-    public void DeleteBallFromQueue()
-    {
-        Ball ball = _selectedBalls.Dequeue();
-        SpawnNewBall(new Vector2(ball.Column, 10));
-        Destroy(ball.gameObject);
+
+        _selectedBalls.Add(ball);
     }
 
     public Ball GetRandomBall()
