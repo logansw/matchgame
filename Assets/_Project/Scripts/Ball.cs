@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class Ball : MonoBehaviour, IInteractable
@@ -12,6 +11,7 @@ public class Ball : MonoBehaviour, IInteractable
     public static BallSelectedDelegate OnBallSelected;
     [SerializeField] private SpriteRenderer _highlightSR;
     private bool _selected;
+    public int Column;
 
     public void SetSprite(Sprite sprite)
     {

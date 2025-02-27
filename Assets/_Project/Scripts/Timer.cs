@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        StartTimer(60);
+        StartTimer(300);
     }
 
     public void StartTimer(float startTime)
