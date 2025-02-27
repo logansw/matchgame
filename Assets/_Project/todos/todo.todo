@@ -1,0 +1,35 @@
+--------------------------------------------------
+Roadmap:
+    ✔ Spawn Balls @done(25-02-18 12:02)
+    ✔ Scoring @next @done(25-02-25 12:47)
+    ☐ Timer @next
+    ☐ Special Balls
+    ☐ Replay
+    ☐ Highscores
+--------------------------------------------------
+
+Bucket:
+    Make data structure to represent balls:
+        ✔ Make a generic abstract data type with basic expected functionality @30m @started(25-02-06 09:37) @done(25-02-06 10:04) @lasted(27m51s)
+        ✔ Make a actual implementation of the ADT @30m @started(25-02-06 10:04) @done(25-02-06 11:34) @lasted(1h31m)
+    ✔ Render to screen @60m @started(25-02-06 11:35) @done(25-02-10 10:03) @lasted(3d22h28m59s)
+    ✔ Tap a ball to remove it @30m @done(25-02-10 10:04)
+    ✔ Balls fall into place @30m @done(25-02-10 10:04)
+    
+Scoring:
+    ✔ Track number of consecutive colors matched @high @done(25-02-25 12:47)
+    ✔ Render current score to screen @high @done(25-02-25 12:47)
+    ☐ Basic UI to let Uncle Derek tune the scoring curve @low
+
+Wildcard:
+
+Special Ball:
+     
+Logistics:
+    ☐ 9 columns, 8 rows
+    ✔ Seven colors @done(25-02-18 11:50)
+    ☐ Timer (5m, 7m, 10m, 15m)
+    ☐ Can only click on bottom most balls
+    ☐ Hide balls above row 6
+    ☐ Spawn balls continuously
+    ☐ Restart button
