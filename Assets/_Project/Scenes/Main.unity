@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca46f23af1294aed9afc1296e97b793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selectedBalls: []
   _ballPrefab: {fileID: 8573329598438397022, guid: 069c69a039c894a47be415f222006fe5, type: 3}
   _sprites:
   - {fileID: 21300000, guid: dd7d989aa709a4c4fb333f848c770b2d, type: 3}
@@ -647,6 +648,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 18109350f2fb643f987cc91443a841b0, type: 3}
   - {fileID: 21300000, guid: 673be62d8ef91466aaa70dd4ba4262bc, type: 3}
   - {fileID: 21300000, guid: 9015c4225f015484fb52df8184d3539f, type: 3}
+  _wildSprite: {fileID: 21300000, guid: 86cf2581860544804b550c8f34f2211e, type: 3}
+  _bonusSprite: {fileID: 21300000, guid: 8f33b6be948934de799a35723a560d7a, type: 3}
 --- !u!4 &1241905997
 Transform:
   m_ObjectHideFlags: 0

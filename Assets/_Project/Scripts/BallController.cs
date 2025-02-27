@@ -11,6 +11,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private List<Sprite> _sprites;
     public delegate void BallScoredDelegate(Ball ball);
     public static BallScoredDelegate OnBallScored;
+    [SerializeField] private Sprite _wildSprite;
+    [SerializeField] private Sprite _bonusSprite;
 
     void Start()
     {
@@ -39,6 +41,31 @@ public class BallController : MonoBehaviour
 
     public void ProcessBallTap(Ball ball)
     {
+        if (ball.IsBonus)
+        {
+            _selectedBalls.Add(ball);
+            foreach (Ball b in _selectedBalls)
+            {
+                Destroy(b.gameObject);
+                SpawnNewBall(new Vector2(b.Column, 10));
+            }
+            OnBallScored.Invoke(ball);
+            _selectedBalls = new List<Ball>();
+            return;
+        }
+        
+        if (ball.IsWild)
+        {
+            foreach (Ball b in _selectedBalls)
+            {
+                Destroy(b.gameObject);
+                SpawnNewBall(new Vector2(b.Column, 10));
+            }
+            OnBallScored.Invoke(ball);
+            _selectedBalls = new List<Ball>();
+            ball.SetSprite(_sprites[ball.Value]);
+        }
+
         if (_selectedBalls.Contains(ball))
         {
             if (_selectedBalls[_selectedBalls.Count-1] == ball)
@@ -81,8 +108,24 @@ public class BallController : MonoBehaviour
     public Ball GetRandomBall()
     {
         Ball ball = Instantiate(_ballPrefab, transform);
-        ball.Value = UnityEngine.Random.Range(0, 7);
-        ball.SetSprite(_sprites[ball.Value]);
+        
+        int randomValue = UnityEngine.Random.Range(0, 100);
+        if (randomValue < 3)
+        {
+            ball.IsBonus = true;
+            ball.SetSprite(_bonusSprite);
+        }
+        else if (randomValue < 6)
+        {
+            ball.IsWild = true;
+            ball.SetSprite(_wildSprite);
+        }
+        else
+        {
+            ball.Value = UnityEngine.Random.Range(0, 7);
+            ball.SetSprite(_sprites[ball.Value]);
+        }
+
         return ball;
     }
 }

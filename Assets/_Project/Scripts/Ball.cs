@@ -12,6 +12,8 @@ public class Ball : MonoBehaviour, IInteractable
     [SerializeField] private SpriteRenderer _highlightSR;
     private bool _selected;
     public int Column;
+    public bool IsBonus;
+    public bool IsWild;
 
     public void SetSprite(Sprite sprite)
     {

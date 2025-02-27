@@ -5,6 +5,7 @@ public class ScoreTracker : MonoBehaviour
 {
     public static ScoreTracker s_Instance;
     private int[] _comboScores;
+    private int[] _bonusScores;
     private float _score;
     public float Score
     {
@@ -14,6 +15,7 @@ public class ScoreTracker : MonoBehaviour
         }
         set
         {
+            Debug.Log($"+{value - _score}");
             _score = value;
             _scoreText.text = _score.ToString();
         }
@@ -31,7 +33,8 @@ public class ScoreTracker : MonoBehaviour
 
     void Start()
     {
-        _comboScores = new int[] {10, 15, 25, 40, 60, 85, 115, 150};
+        _comboScores = new int[] {10, 30, 50, 75, 100, 125, 150};
+        _bonusScores = new int[] {5, 15, 25, 40, 60, 85, 120};
     }
     public float GetCombo(int streak)
     {
@@ -41,5 +44,15 @@ public class ScoreTracker : MonoBehaviour
         }
 
         return _comboScores[streak - 1];
+    }
+
+    public float GetBonus(int streak)
+    {
+        if (streak - 1 >= _bonusScores.Length)
+        {
+            streak = _bonusScores.Length;
+        }
+
+        return _bonusScores[streak-1];
     }
 }
