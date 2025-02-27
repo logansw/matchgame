@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BallController : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class BallController : MonoBehaviour
     {
         PopulateQueueGrid();
         _selectedBalls = new List<Ball>();
-        Ball.OnBallSelected += AddBallToQueue;
+        Ball.OnBallTapped += ProcessBallTap;
     }
 
     private void PopulateQueueGrid()
@@ -35,8 +34,29 @@ public class BallController : MonoBehaviour
         ball.transform.localPosition = new Vector2(-((GRID_WIDTH-1) / 2f) + position.x, position.y);
     }
 
-    public void AddBallToQueue(Ball ball)
+    public void ProcessBallTap(Ball ball)
     {
+        if (_selectedBalls.Contains(ball))
+        {
+            if (_selectedBalls[_selectedBalls.Count-1] == ball)
+            {
+                ball.Deselect();
+                _selectedBalls.Remove(ball);
+            }
+            return;
+        }
+
+        if (_selectedBalls.Count == 3)
+        {
+            Ball lastBall = _selectedBalls[_selectedBalls.Count - 1];
+            if (ball.Value != lastBall.Value)
+            {
+                return;
+            }
+        }
+        
+        ball.HighlightSelected();
+        
         if (_selectedBalls.Count != 0)
         {
             Ball lastBall = _selectedBalls[_selectedBalls.Count - 1];
