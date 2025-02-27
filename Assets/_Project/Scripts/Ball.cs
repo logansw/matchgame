@@ -8,7 +8,6 @@ public class Ball : MonoBehaviour, IInteractable
     public int Value;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     public delegate void BallTappedDelegate(Ball ball);
-    public static BallTappedDelegate OnBallSelected;
     public static BallTappedDelegate OnBallTapped;
     [SerializeField] private SpriteRenderer _highlightSR;
     private bool _selected;
@@ -32,7 +31,6 @@ public class Ball : MonoBehaviour, IInteractable
 
     public void HighlightSelected()
     {
-        OnBallSelected.Invoke(this);
         _highlightSR.enabled = true;
         _selected = true;
     }

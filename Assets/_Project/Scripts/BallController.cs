@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private List<Ball> _selectedBalls;
     [SerializeField] private Ball _ballPrefab;
     [SerializeField] private List<Sprite> _sprites;
+    public delegate void BallScoredDelegate(Ball ball);
+    public static BallScoredDelegate OnBallScored;
 
     void Start()
     {
@@ -67,6 +70,7 @@ public class BallController : MonoBehaviour
                     Destroy(b.gameObject);
                     SpawnNewBall(new Vector2(b.Column, 10));
                 }
+                OnBallScored.Invoke(ball);
                 _selectedBalls = new List<Ball>();
             }
         }
@@ -77,7 +81,7 @@ public class BallController : MonoBehaviour
     public Ball GetRandomBall()
     {
         Ball ball = Instantiate(_ballPrefab, transform);
-        ball.Value = Random.Range(0, 7);
+        ball.Value = UnityEngine.Random.Range(0, 7);
         ball.SetSprite(_sprites[ball.Value]);
         return ball;
     }

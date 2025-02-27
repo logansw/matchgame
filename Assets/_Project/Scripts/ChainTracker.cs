@@ -9,7 +9,7 @@ public class ChainTracker : MonoBehaviour
 
     void Start()
     {
-        Ball.OnBallSelected += ChangeCurrentStreak;
+        BallController.OnBallScored += ChangeCurrentStreak;
         _scoreTracker = ScoreTracker.s_Instance;
     }
 
