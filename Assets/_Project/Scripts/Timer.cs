@@ -28,7 +28,9 @@ public class Timer : MonoBehaviour
             _secondsRemaining -= Time.deltaTime;
             int minutes = (int)(_secondsRemaining / 60);
             int seconds = (int)(_secondsRemaining % 60);
-            _text.text = $"{minutes}:{seconds}";
+            string mm = minutes.ToString("00");
+            string ss = seconds.ToString("00");
+            _text.text = $"{mm}:{ss}";
             yield return null;
         }
 
