@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameSettings GameSettings;
     public static GameManager s_Instance;
+    [SerializeField] private List<GameObject> _panels;
     
     void Awake()
     {
