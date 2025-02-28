@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        StartTimer(300);
+        StartTimer(GameManager.s_Instance.GameSettings.Time);
     }
 
     public void StartTimer(float startTime)

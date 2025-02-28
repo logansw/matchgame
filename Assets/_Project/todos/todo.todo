@@ -3,7 +3,7 @@ Roadmap:
     ✔ Spawn Balls @done(25-02-18 12:02)
     ✔ Scoring @next @done(25-02-25 12:47)
     ✔ Timer @next @done(25-02-26 16:24)
-    ☐ Special Balls
+    ✔ Special Balls @done(25-02-28 11:13)
     ☐ Replay
     ☐ Highscores
 --------------------------------------------------
@@ -26,12 +26,12 @@ Wildcard:
 Special Ball:
      
 Logistics:
-    ☐ 9 columns, 8 rows
+    ✔ 9 columns, 8 rows @done(25-02-28 11:13)
     ✔ Seven colors @done(25-02-18 11:50)
     ✔ Timer (5m, 7m, 10m, 15m) @done(25-02-26 16:24)
-    ☐ Can only click on bottom most balls
+    ✔ Can only click on bottom most balls @done(25-02-28 11:20)
     ☐ Hide balls above row 6
-    ☐ Spawn balls continuously
+    ✔ Spawn balls continuously @done(25-02-28 11:20)
     ☐ Restart button
 
 Timer:

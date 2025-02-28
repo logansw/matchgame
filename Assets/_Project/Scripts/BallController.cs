@@ -18,7 +18,16 @@ public class BallController : MonoBehaviour
     {
         PopulateQueueGrid();
         _selectedBalls = new List<Ball>();
+    }
+
+    void OnEnable()
+    {
         Ball.OnBallTapped += ProcessBallTap;
+    }
+
+    void OnDisable()
+    {
+        Ball.OnBallTapped -= ProcessBallTap;
     }
 
     private void PopulateQueueGrid()
