@@ -4,7 +4,7 @@ Roadmap:
     ✔ Scoring @next @done(25-02-25 12:47)
     ✔ Timer @next @done(25-02-26 16:24)
     ✔ Special Balls @done(25-02-28 11:13)
-    ☐ Replay
+    ✔ Replay @done(25-02-28 13:40)
     ☐ Highscores
 --------------------------------------------------
 
@@ -30,9 +30,9 @@ Logistics:
     ✔ Seven colors @done(25-02-18 11:50)
     ✔ Timer (5m, 7m, 10m, 15m) @done(25-02-26 16:24)
     ✔ Can only click on bottom most balls @done(25-02-28 11:20)
-    ☐ Hide balls above row 6
+    ✔ Hide balls above row 6 @done(25-02-28 13:40)
     ✔ Spawn balls continuously @done(25-02-28 11:20)
-    ☐ Restart button
+    ✔ Restart button @done(25-02-28 13:40)
 
 Timer:
-    ☐ Do something upon game over
+    ✔ Do something upon game over @done(25-02-28 13:40)
